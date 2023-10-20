@@ -242,7 +242,7 @@
                     <viewLayoutGuide key="safeArea" id="NGM-P0-r7T"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <size key="titleShadowOffset" width="1" height="0.0"/>
-                    <state key="normal" title="Done">
+                    <state key="normal" title="終わり">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                     </state>

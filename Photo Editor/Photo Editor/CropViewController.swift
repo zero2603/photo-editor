@@ -86,12 +86,12 @@ open class CropViewController: UIViewController {
 
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.toolbar.isTranslucent = false
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(CropViewController.cancel(_:)))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CropViewController.done(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "キャンセル", style: .plain, target: self, action: #selector(CropViewController.cancel(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "終わり", style: .plain, target: self, action: #selector(CropViewController.done(_:)))
         
         if self.toolbarItems == nil {
             let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            let constrainButton = UIBarButtonItem(title: "Constrain", style: .plain, target: self, action: #selector(CropViewController.constrain(_:)))
+            let constrainButton = UIBarButtonItem(title: "制約する", style: .plain, target: self, action: #selector(CropViewController.constrain(_:)))
             toolbarItems = [flexibleSpace, constrainButton, flexibleSpace]
         }
         
@@ -145,7 +145,7 @@ open class CropViewController: UIViewController {
     
     @objc func constrain(_ sender: UIBarButtonItem) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let original = UIAlertAction(title: "Original", style: .default) { [unowned self] action in
+        let original = UIAlertAction(title: "オリジナル", style: .default) { [unowned self] action in
             guard let image = self.cropView?.image else {
                 return
             }
@@ -165,7 +165,7 @@ open class CropViewController: UIViewController {
             self.cropView?.cropRect = cropRect
         }
         actionSheet.addAction(original)
-        let square = UIAlertAction(title: "Square", style: .default) { [unowned self] action in
+        let square = UIAlertAction(title: "四角", style: .default) { [unowned self] action in
             let ratio: CGFloat = 1.0
 //            self.cropView?.cropAspectRatio = ratio
             if var cropRect = self.cropView?.cropRect {
@@ -213,7 +213,7 @@ open class CropViewController: UIViewController {
             }
         }
         actionSheet.addAction(widescreen)
-        let cancel = UIAlertAction(title: "Cancel", style: .default) { [unowned self] action in
+        let cancel = UIAlertAction(title: "キャンセル", style: .default) { [unowned self] action in
             self.dismiss(animated: true, completion: nil)
         }
         actionSheet.addAction(cancel)
