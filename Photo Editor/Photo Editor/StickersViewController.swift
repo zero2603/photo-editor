@@ -34,12 +34,12 @@ class StickersViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         configureCollectionViews()
-        scrollView.contentSize = CGSize(width: 2.0 * screenSize.width,
+        scrollView.contentSize = CGSize(width: 1.0 * screenSize.width,
                                         height: scrollView.frame.size.height)
         
-        scrollView.isPagingEnabled = true
+        scrollView.isPagingEnabled = false
         scrollView.delegate = self
-        pageControl.numberOfPages = 2
+        pageControl.numberOfPages = 1
         
         holdView.layer.cornerRadius = 3
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(StickersViewController.panGesture))
@@ -72,26 +72,26 @@ class StickersViewController: UIViewController, UIGestureRecognizerDelegate {
         
         //-----------------------------------
         
-        let emojisFrame = CGRect(x: scrollView.frame.size.width,
-                                 y: 0,
-                                 width: UIScreen.main.bounds.width,
-                                 height: view.frame.height - 40)
+        // let emojisFrame = CGRect(x: scrollView.frame.size.width,
+        //                          y: 0,
+        //                          width: UIScreen.main.bounds.width,
+        //                          height: view.frame.height - 40)
         
-        let emojislayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        emojislayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        emojislayout.itemSize = CGSize(width: 70, height: 70)
+        // let emojislayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        // emojislayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        // emojislayout.itemSize = CGSize(width: 70, height: 70)
         
-        emojisCollectioView = UICollectionView(frame: emojisFrame, collectionViewLayout: emojislayout)
-        emojisCollectioView.backgroundColor = .clear
-        scrollView.addSubview(emojisCollectioView)
-        emojisDelegate = EmojisCollectionViewDelegate()
-        emojisDelegate.stickersViewControllerDelegate = stickersViewControllerDelegate
-        emojisCollectioView.delegate = emojisDelegate
-        emojisCollectioView.dataSource = emojisDelegate
+        // emojisCollectioView = UICollectionView(frame: emojisFrame, collectionViewLayout: emojislayout)
+        // emojisCollectioView.backgroundColor = .clear
+        // scrollView.addSubview(emojisCollectioView)
+        // emojisDelegate = EmojisCollectionViewDelegate()
+        // emojisDelegate.stickersViewControllerDelegate = stickersViewControllerDelegate
+        // emojisCollectioView.delegate = emojisDelegate
+        // emojisCollectioView.dataSource = emojisDelegate
         
-        emojisCollectioView.register(
-            UINib(nibName: "EmojiCollectionViewCell", bundle: Bundle(for: EmojiCollectionViewCell.self)),
-            forCellWithReuseIdentifier: "EmojiCollectionViewCell")
+        // emojisCollectioView.register(
+        //     UINib(nibName: "EmojiCollectionViewCell", bundle: Bundle(for: EmojiCollectionViewCell.self)),
+        //     forCellWithReuseIdentifier: "EmojiCollectionViewCell")
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -120,12 +120,12 @@ class StickersViewController: UIViewController, UIGestureRecognizerDelegate {
                                      width: UIScreen.main.bounds.width,
                                      height: view.frame.height - 40)
         
-        emojisCollectioView.frame = CGRect(x: scrollView.frame.size.width,
-                                           y: 0,
-                                           width: UIScreen.main.bounds.width,
-                                           height: view.frame.height - 40)
+        // emojisCollectioView.frame = CGRect(x: scrollView.frame.size.width,
+        //                                    y: 0,
+        //                                    width: UIScreen.main.bounds.width,
+        //                                    height: view.frame.height - 40)
         
-        scrollView.contentSize = CGSize(width: 2.0 * screenSize.width,
+        scrollView.contentSize = CGSize(width: 1.0 * screenSize.width,
                                         height: scrollView.frame.size.height)
     }
     
