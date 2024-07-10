@@ -38,6 +38,7 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var rotateButton: UIButton!
     
     @objc public var image: UIImage?
     /**
@@ -68,7 +69,7 @@ public final class PhotoEditorViewController: UIViewController {
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
-    
+    var currentRotationAngle: CGFloat = 0
     
     var stickersViewController: StickersViewController!
 
