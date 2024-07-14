@@ -115,7 +115,7 @@ extension PhotoEditorViewController {
     }
 
     @IBAction func rotateButtonPressed(_ sender: Any) {
-        currentRotationAngle += 90
+        currentRotationAngle -= 90
 
         guard let image = image else {
             print("Image not found")
